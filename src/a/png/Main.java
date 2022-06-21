@@ -49,7 +49,7 @@ public class Main {
 			{
 				break;
 			}
-			System.out.println("Type \"Y\" and enter to get a planet name. Type \"Q\" and enter to quit the program.");
+			System.out.println("\nType \"Y\" and enter to get a planet name. Type \"Q\" and enter to quit the program.");
 		}
 	}
 }
