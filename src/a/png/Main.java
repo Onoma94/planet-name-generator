@@ -1,10 +1,11 @@
 package a.png;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
-
-	public static void main(String[] args)
+	
+	static String generatedName()
 	{
 		RandomCollection<String> initials = new RandomCollection<String>().add(1, "")
 				.add(1, "'").add(4, "b").add(4, "c").add(1, "ch").add(4, "d").add(4, "f").add(4, "g")
@@ -18,7 +19,6 @@ public class Main {
 				.add(3, "m").add(3, "n").add(3, "r").add(1, "s");
 		RandomCollection<String> endings = new RandomCollection<String>().add(1, "os")
 				.add(1, "us").add(1, "is").add(1, "a").add(1, "on").add(1, "um");
-		
 		String endname = "";
 		Random random = new Random();
 		int syllableCount = random.nextInt(2) + 2;
@@ -30,7 +30,26 @@ public class Main {
 		}
 		if (random.nextBoolean()) endname = endname.concat(endings.next());
 		endname = endname.substring(0, 1).toUpperCase() + endname.substring(1);
-		System.out.println("This is your planet name:");
-		System.out.println(endname);
+		return endname;
+	}
+	
+	public static void main(String[] args)
+	{
+
+		System.out.println("Welcome to the Planet Name Generator! Type \"Y\" and enter to get a planet name. Type \"Q\" and enter to quit the program.");
+		while(true)
+		{
+			Scanner sc = new Scanner(System.in); char ch = sc.next().charAt(0);
+			if (ch == 'Y' || ch == 'y')
+			{
+				System.out.println("This is your planet name:");
+				System.out.println(generatedName());
+			}
+			if (ch == 'Q' || ch == 'q')
+			{
+				break;
+			}
+			System.out.println("Type \"Y\" and enter to get a planet name. Type \"Q\" and enter to quit the program.");
+		}
 	}
 }
